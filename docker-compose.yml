@@ -1,0 +1,26 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "11"
+      DISK_SIZE: "512G"
+      RAM_SIZE: "16G"
+      CPU_CORES: "8"
+      REGION: "ja-JP"
+      KEYBOARD: "ja-JP"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    volumes:
+      # - ./win11x64.iso:/boot.iso
+      - ./windows:/storage
+      - ./oem:/oem
+    restart: always
+    stop_grace_period: 2m
