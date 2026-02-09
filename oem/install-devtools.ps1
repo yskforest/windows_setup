@@ -10,5 +10,6 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
 choco install -y 7zip.install
 choco install -y git.install
 choco install -y vscode.install
+choco install -y googlechrome
 
 Write-Host "Tools installation completed."

@@ -20,7 +20,8 @@ services:
       - 3389:3389/udp
     volumes:
       # - ./win11x64.iso:/boot.iso
-      - ./windows:/storage
+      - ./.volumes/windows:/storage
       - ./oem:/oem
-    restart: always
+      - /mnt/e/shared:/shared
+    # restart: always
     stop_grace_period: 2m

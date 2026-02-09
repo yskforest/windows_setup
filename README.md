@@ -5,6 +5,7 @@
   - [1.2. option](#12-option)
   - [1.3. chcksum error](#13-chcksum-error)
   - [1.4. 導入しない](#14-導入しない)
+- [2. dockur/windows](#2-dockurwindows)
 
 ## 1. chocolatey
 ### 1.1. install
@@ -42,4 +43,12 @@ choco install -y googlechrome
 ### 1.4. 導入しない
 ```powershell
 choco install -y eset-internet-security
+```
+
+## 2. dockur/windows
+- JapaneseオプションだとISOを取得できなかったため、手動でISOを取得した後、再度docker-compose.ymlを更新して実行する。
+  - :/boot.isoにISOをマウント
+  - 何も指定しないとデフォルトのEnglish版が自動取得で使用される
+```
+docker compose up -d
 ```
