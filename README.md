@@ -52,3 +52,13 @@ choco install -y eset-internet-security
 ```
 docker compose up -d
 ```
+
+## 他
+### ps1のポリシー
+```powershell
+# 一時的
+Set-ExecutionPolicy RemoteSigned -Scope Process -Force
+
+# ユーザー許可
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+```
