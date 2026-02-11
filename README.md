@@ -6,6 +6,9 @@
   - [1.3. chcksum error](#13-chcksum-error)
   - [1.4. 導入しない](#14-導入しない)
 - [2. dockur/windows](#2-dockurwindows)
+- [3. 他](#3-他)
+  - [3.1. ps1のポリシー](#31-ps1のポリシー)
+  - [3.2. ext4ドライブのマウント](#32-ext4ドライブのマウント)
 
 ## 1. chocolatey
 ### 1.1. install
@@ -53,12 +56,23 @@ choco install -y eset-internet-security
 docker compose up -d
 ```
 
-## 他
-### ps1のポリシー
+## 3. 他
+### 3.1. ps1のポリシー
 ```powershell
 # 一時的
 Set-ExecutionPolicy RemoteSigned -Scope Process -Force
 
 # ユーザー許可
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+```
+
+### 3.2. ext4ドライブのマウント
+```powershell
+GET-CimInstance -query "SELECT * from Win32_DiskDrive"
+# DeviceID           Caption                            Partitions Size          Model
+# --------           -------                            ---------- ----          -----
+# \\.\PHYSICALDRIVE3 BUFFALO SSD Device 1          1920380797440 BUFFALO SSD Device
+
+wsl --mount \\.\PHYSICALDRIVE3 --bare
+# 以下、wsl上でlsblkしてmountできる
 ```
